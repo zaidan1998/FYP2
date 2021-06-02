@@ -53,6 +53,9 @@ class LOGIN:
 
                 elif task == "Molecular Descriptor Calculator":
                     def desc_calc():
+                        cwd = os.getcwd()
+                        files = os.listdir(cwd)
+                        print("Files in %r: %s" % (cwd, files))
         
                         bashCommand = "java -Xms2G -Xmx2G -Djava.awt.headless=true -jar ./PaDEL-Descriptor/PaDEL-Descriptor.jar -removesalt -standardizenitro -fingerprints -descriptortypes ./PaDEL-Descriptor/%s -dir ./ -file descriptors_output.csv" % selected_fp
                         process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
